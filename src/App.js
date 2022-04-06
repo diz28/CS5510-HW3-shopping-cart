@@ -3,7 +3,7 @@ import ShoppingPage from "./pages/ShoppingPage";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <ShoppingPage></ShoppingPage>
     </div>
   );

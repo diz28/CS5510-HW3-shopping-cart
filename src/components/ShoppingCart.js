@@ -2,20 +2,24 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function ShoppingCart({ productsInCart }) {
-  const total = productsInCart.reduce(
-    (pTotal, product) => pTotal + product.price,
+  const total = Array.from(productsInCart.values()).reduce(
+    (pTotal, p) => pTotal + p.qty * p.product.price,
     0
   );
 
-  function shoppingCartRender() {
+  function renderProductsInCart() {
     return (
       <span>
-        <h3>Products In Cart</h3>
-        {productsInCart.map((p) => (
-          <div>
-            1 {p.name} (p.price) <button>-</button>
-          </div>
-        ))}
+        {Array.from(productsInCart.entries()).map(
+          ([name, { product, qty }]) => (
+            <div key={"pic_" + name}>
+              {qty} {product.name} - (${product.price})
+              <button type="button" class="btn btn-danger">
+                -
+              </button>
+            </div>
+          )
+        )}
       </span>
     );
   }
@@ -24,15 +28,19 @@ function ShoppingCart({ productsInCart }) {
     <div className="ShoppingCart">
       <h2>Shopping Cart</h2>
       <label>
-        Total <output>{total}</output>
+        Total: <output> ${total}</output>
       </label>
-      {productsInCart.length ? shoppingCartRender : <div>No items yet</div>}
+      {productsInCart.size ? (
+        renderProductsInCart()
+      ) : (
+        <div>No products in cart yet</div>
+      )}
     </div>
   );
 }
 
 ShoppingCart.propTypes = {
-  productsInCart: PropTypes.number.isRequired,
+  productsInCart: PropTypes.object.isRequired,
 };
 
 export default ShoppingCart;

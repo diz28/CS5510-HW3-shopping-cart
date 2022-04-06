@@ -10,7 +10,7 @@ function ShoppingPage({ products, addProduct }) {
       <div>
         {products.map((p, i) => (
           <Product
-            key={"products" + i}
+            key={"product" + i}
             product={p}
             addProduct={addProduct}
           ></Product>
