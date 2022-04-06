@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import "./style.css";
 function Product({ product, addProduct }) {
   return (
     <div className="Product">
@@ -9,8 +9,8 @@ function Product({ product, addProduct }) {
 
       <button
         type="button"
-        class="btn btn-success"
         onClick={() => addProduct(product)}
+        className="addButton"
       >
         Add to cart
       </button>

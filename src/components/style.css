@@ -12,3 +12,30 @@
   background-color: lightblue;
   color: black;
 }
+
+.addButton {
+  background-color: rgb(36, 201, 121);
+  color: black;
+  border-radius: 1em;
+  border: none;
+  font-weight: bold;
+}
+
+.decButton {
+  background-color: rgb(230, 132, 132);
+  color: black;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 1em;
+  border: none;
+  font-weight: bold;
+}
+.removeButton {
+  background-color: red;
+  color: black;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 1em;
+  border: none;
+  font-weight: bold;
+}

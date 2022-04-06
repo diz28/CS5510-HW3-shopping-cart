@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import "./style.css";
+import Product from "./Product";
 
-function Paginate({ products }) {
+function Paginate({ products, addProduct }) {
   const renderData = (products) => {
     return (
       <ul>
         {products.map((item, index) => {
           return (
             <li key={index}>
-              {item.name} - ${item.price}
+              <Product
+                key={"product" + index}
+                product={item}
+                addProduct={addProduct}
+              ></Product>
             </li>
           );
         })}
@@ -47,8 +52,8 @@ function Paginate({ products }) {
 
   return (
     <>
-      <ul className="pageNumber"> {renderPageNumber}</ul>
       {renderData(curItems)}
+      <ul className="pageNumber">{renderPageNumber}</ul>
     </>
   );
 }

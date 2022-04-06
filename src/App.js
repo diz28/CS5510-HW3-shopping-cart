@@ -3,9 +3,11 @@ import ShoppingPage from "./pages/ShoppingPage";
 
 function App() {
   return (
-    <div>
-      <ShoppingPage></ShoppingPage>
-    </div>
+    <body class="body">
+      <div>
+        <ShoppingPage></ShoppingPage>
+      </div>
+    </body>
   );
 }
 

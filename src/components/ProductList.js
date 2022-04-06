@@ -2,20 +2,31 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Product from "./Product.js";
+import Paginate from "./Paginate.js";
 
 function ShoppingPage({ products, addProduct }) {
+  const renderData = (products) => {
+    return (
+      <ul>
+        {products.map((item, index) => {
+          return (
+            <li key={index}>
+              {/* {item.name} - ${item.price} */}
+              <Product
+                key={"product" + index}
+                product={item}
+                addProduct={addProduct}
+              ></Product>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
   return (
-    <div className="ShoppingPage">
-      <h2>Products</h2>
-      <div>
-        {products.map((p, i) => (
-          <Product
-            key={"product" + i}
-            product={p}
-            addProduct={addProduct}
-          ></Product>
-        ))}
-      </div>
+    <div>
+      <h2 class="text-danger">Store</h2>
+      <Paginate products={products} addProduct={addProduct}></Paginate>
     </div>
   );
 }
